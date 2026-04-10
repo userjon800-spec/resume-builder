@@ -1,9 +1,8 @@
-import React from 'react'
-
+import { SignInButton } from "@clerk/nextjs";
 export default function page() {
   return (
-    <div>
-      
+    <div className="flex justify-center py-24">
+      <SignInButton />
     </div>
-  )
+  );
 }

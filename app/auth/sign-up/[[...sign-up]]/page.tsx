@@ -1,9 +1,8 @@
-import React from 'react'
-
+import { SignUp } from "@clerk/nextjs";
 export default function page() {
   return (
-    <div>
-      
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <SignUp />
     </div>
-  )
+  );
 }
