@@ -7,7 +7,6 @@ import { IResumeData } from "@/types/resume";
 import DownloadButton from "@/components/resume/download-button";
 import { useSearchParams } from "next/navigation";
 const defaultData: IResumeData = {
-  _id: "",
   fullName: "",
   role: "",
   email: "",

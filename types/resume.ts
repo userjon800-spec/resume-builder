@@ -16,7 +16,6 @@ export interface ILanguage {
   level: string;
 }
 export interface IResumeData {
-  _id: string;
   fullName: string;
   role: string;
   email: string;

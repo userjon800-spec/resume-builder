@@ -6,7 +6,6 @@ import ModernTemplate from "@/components/resume/templates/modern-template";
 import { Button } from "@/components/ui/button";
 import { IResumeData } from "@/types/resume";
 const demoData: IResumeData = {
-  _id: "1",
   fullName: "Javohir Xamdamboyev",
   role: "Junior Fullstack Developer",
   email: "userjon800@gmail.com",

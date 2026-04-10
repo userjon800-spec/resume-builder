@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -9,7 +10,6 @@ import { toast } from "sonner"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { IResumeData, IProject, IEducation, ILanguage } from "@/types/resume";
 const defaultData: IResumeData = {
-  _id: "",
   fullName: "",
   role: "",
   email: "",
@@ -100,16 +100,16 @@ export default function ResumeForm({ onUpdate, initialData }: Props) {
     field: keyof IEducation,
     value: string,
   ) => {
-    const education = [...data.educations];
-    education[index] = { ...education[index], [field]: value };
-    const updated = { ...data, education };
+    const educations = [...data.educations];
+    educations[index] = { ...educations[index], [field]: value };
+    const updated = { ...data, educations };
     setData(updated);
     onUpdate(updated);
   };
   const removeEducation = (index: number) => {
     const updated = {
       ...data,
-      education: data.educations.filter((_, i) => i !== index),
+      educations: data.educations.filter((_, i) => i !== index),
     };
     setData(updated);
     onUpdate(updated);
@@ -169,8 +169,10 @@ export default function ResumeForm({ onUpdate, initialData }: Props) {
     }
     setLoading(true);
     try {
+      // @ts-expect-error
       const isEdit = !!initialData?._id;
-      const url = isEdit ? `/api/resume/${initialData._id}` : `/api/resume`;
+      // @ts-expect-error
+      const url = isEdit ? `/api/resume/${initialData?._id}` : `/api/resume`;
       const method = isEdit ? "PUT" : "POST";
       const res = await fetch(url, {
         method,
